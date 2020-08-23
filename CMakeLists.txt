@@ -9,9 +9,14 @@ add_subdirectory(libA)
 # OPTIONAL to be able to omit the folder name from the include statements
 include_directories(libA)
 
-# Create target
+# Include the CUTE library (Test framework)
+include_directories(cute_lib/cute)
+include_directories(cute_lib/cute_tests)
+
+# Create targets
 add_executable(CLionTemplateProject main.cpp)
+add_executable(CuteTest test.cpp)
 
-# Link the library to the target
+# Link the libraries to the targets
 target_link_libraries(CLionTemplateProject libraryA)
-
+target_link_libraries(CuteTest libraryA)
